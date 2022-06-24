@@ -6,6 +6,7 @@
 
 
 
+$owner_id = ""; // eneter ur id
 $botToken = "5523681865:AAGnS1eU7lHoltQIYvvgwelzmQHEj8DZivc"; // Enter ur bot token
 $website = "https://api.telegram.org/bot".$botToken;
 error_reporting(0);
@@ -42,6 +43,10 @@ sendMessage($chatId, "<b>ID:</b> <code>$userId</code>%0A<b>First Name:</b> $firs
 //////////=========[Chk Command]=========//////////
 
 if ((strpos($message, ".chk") === 0)||(strpos($message, "/chk") === 0)){
+$checkUser = userCheck($userId);
+if($checkUser == False){
+      return;
+}
 $lista = substr($message, 5);
 $i     = explode("|", $lista);
 $cc    = $i[0];
@@ -259,6 +264,12 @@ sendMessage($chatId, "<b>✅ LIVE KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>R
 function sendMessage ($chatId, $message){
 $url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".$message."&reply_to_message_id=".$message_id."&parse_mode=HTML";
 file_get_contents($url);      
+}
+
+function userCheck($userID){
+ if(.$userID != .$owner_id){
+        return False;
+    }
 }
 
 ////////////////=============[MTCTECHX]===============////////////////
