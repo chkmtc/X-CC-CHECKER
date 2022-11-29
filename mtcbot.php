@@ -6,8 +6,8 @@
 
 
 
-$owner_id = ""; // eneter ur id
-$botToken = "5523681865:AAGnS1eU7lHoltQIYvvgwelzmQHEj8DZivc"; // Enter ur bot token
+$owner_id = ""; // 5951223947
+$botToken = "5864836614:AAG0zGBCY4nRtIUgOcAtcjIT3F2yFLdjolY"; // Enter ur bot token
 $website = "https://api.telegram.org/bot".$botToken;
 error_reporting(0);
 $update = file_get_contents('php://input');
